@@ -13,13 +13,14 @@ Tasks for Members:
 Seth
 - Explore Data
 - Clean Data
+- Visualization
 
 Connor
 - Hyperparameter Tuning
 - Feature Selection
 
 Varun
-
+- Deep learning
 
 Alea
 -Ensemble techniques
