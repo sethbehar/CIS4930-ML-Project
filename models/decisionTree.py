@@ -1,6 +1,6 @@
 from sklearn.tree import DecisionTreeClassifier
 from helpers.evaluate import evaluate_model
-from sklearn.model_selection import GridSearchCV
+import optuna
 
 class decisionTree():
     

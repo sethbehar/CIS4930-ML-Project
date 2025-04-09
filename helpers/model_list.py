@@ -1,11 +1,12 @@
 from models.decisionTree import decisionTree
 from models.logisticRegression import logisticRegression
 from models.kNearestNeighbors import kNearestNeighbors
-
+from models.svc import svc
 
 # model dictionary for pipelines
 model_map = {
     "Decision Tree": decisionTree,
     "Logistic Regression": logisticRegression,
-    "kNearestNeighbors": kNearestNeighbors
+    "K Nearest Neighbors": kNearestNeighbors,
+    "SVC": svc
 }
