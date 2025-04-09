@@ -1,0 +1,23 @@
+Project Proposal Meeting Notes
+-univariate analysis - nonsmoker vs smoker
+-multivariate analysis - more female smokers (?)
+-As ppl smoke, higher chance of stroke, etc
+-Understand all the values
+-KNN, Logistic, Decision Tree, SVM, Ensemble Techs - Bagging, stacking, differences between those 
+
+Tasks for Members:
+
+Seth
+- Explore Data
+- Clean Data
+
+Connor
+- Decision Tree
+- Logistic Regression
+- KNN 
+
+Varun
+
+
+Alea
+-Ensemble techniques
