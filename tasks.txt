@@ -4,6 +4,9 @@ Project Proposal Meeting Notes
 -As ppl smoke, higher chance of stroke, etc
 -Understand all the values
 -KNN, Logistic, Decision Tree, SVM, Ensemble Techs - Bagging, stacking, differences between those 
+-Deep Learning Needed
+-Ensemble Learning = Random Forest, Adaboost, XGBoost
+-Feature Selection = chi2, f_class, mutual_info, PCA/PCR, UMAP
 
 Tasks for Members:
 
@@ -12,9 +15,8 @@ Seth
 - Clean Data
 
 Connor
-- Decision Tree
-- Logistic Regression
-- KNN 
+- Hyperparameter Tuning
+- Feature Selection
 
 Varun
 
