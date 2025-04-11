@@ -1,7 +1,6 @@
 from sklearn.svm import SVC
 from helpers.evaluate import evaluate_model
 from sklearn.model_selection import cross_val_score, StratifiedKFold
-import optuna
 
 class svc():
     def __init__(self):
