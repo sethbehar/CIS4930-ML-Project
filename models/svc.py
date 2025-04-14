@@ -1,6 +1,7 @@
 from sklearn.svm import SVC
 from helpers.evaluate import evaluate_model
 from sklearn.model_selection import cross_val_score, StratifiedKFold
+import optuna
 
 class svc():
     def __init__(self):
@@ -18,8 +19,6 @@ class svc():
     def objective(self, trial, x, y):
         svc_c = trial.suggest_float("svc_c", 1e-10, 1e10, log=True)
         svc_kernel = trial.suggest_categorical("svc_kernel", ["linear", "poly", "rbf", "sigmoid"])
-
-        
 
         classifier_obj = SVC(C=svc_c, kernel=svc_kernel,gamma='auto')
 
