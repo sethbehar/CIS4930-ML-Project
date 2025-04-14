@@ -12,9 +12,8 @@ class svc():
         self.y=y_train
         self.model.fit(X_train, y_train)
     
-    def predict(self, X_test, y_test):
-        pred = self.model.predict(X_test)
-        return evaluate_model(y_test, pred)
+    def predict(self, X_test):
+        return self.model.predict(X_test)
     
     def objective(self, trial, x, y):
         svc_c = trial.suggest_float("svc_c", 1e-10, 1e10, log=True)
