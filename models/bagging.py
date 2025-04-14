@@ -1,4 +1,4 @@
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import BaggingClassifier
 from helpers.evaluate import evaluate_model
 
 class bagging():

@@ -1,6 +1,6 @@
 from sklearn.tree import DecisionTreeClassifier
 from helpers.evaluate import evaluate_model
-import optuna
+#import optuna
 
 class decisionTree():
     

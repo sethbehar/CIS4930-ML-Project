@@ -1,4 +1,4 @@
-from sklearn.enseble import AdaBoostClassifier
+from sklearn.ensemble import AdaBoostClassifier
 from helpers.evaluate import evaluate_model
 
 class adaboost():

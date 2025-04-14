@@ -5,12 +5,8 @@ from helpers.evaluate import evaluate_model
 
 class stacking():
     def __init__(self):
-        stacking_estimators = 
-        [
-        ('dt', DecisionTreeClassifier()),
-        ('knn', KNeighborsClassifier())
-        ]
-        self.model = StackingClassifier(stacking_estimators)
+        
+        self.model = StackingClassifier(estimators=[('dt', DecisionTreeClassifier()), ('knn', KNeighborsClassifier())])
     
     def train(self, X_train, y_train):
         self.model.fit(X_train, y_train)
