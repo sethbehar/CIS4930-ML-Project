@@ -1,5 +1,6 @@
 from sklearn.neighbors import KNeighborsClassifier
 from helpers.evaluate import evaluate_model
+#import optuna
 
 class kNearestNeighbors():
     def __init__(self):

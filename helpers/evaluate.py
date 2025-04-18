@@ -15,7 +15,7 @@ def evaluate_model(y_true, pred):
 def print_stats(metrics, name):
     print(name, " Accuracy Score: ", metrics[0])
     print(name, " Precision Score: ", metrics[1])
-    print(name, " Recalle Score: ", metrics[2])
+    print(name, " Recall Score: ", metrics[2])
     print(name, " F1 Score: ", metrics[3])
 
 def evaluate_model(y_true, y_pred, model_name="Model"):
