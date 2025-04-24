@@ -13,6 +13,8 @@ model_map = {
     "Decision Tree": decisionTree,
     "Logistic Regression": logisticRegression,
     "K Nearest Neighbors": kNearestNeighbors,
+    "Neural Network": neuralNetwork,
+    "Cat Boost": catBoost,
     "SVC": svc,
     "AdaBoost": adaboost,
     "Bagging": bagging,
