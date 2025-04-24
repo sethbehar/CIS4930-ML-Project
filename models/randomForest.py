@@ -15,6 +15,9 @@ class randomForest():
     def predict(self, X_test):
             return self.model.predict(X_test)
     
+    def predict_proba(self, X_test):
+        return self.model.predict_proba(X_test)
+    
     def objective(self, trial, X, y):
         n_estimators = trial.suggest_int("n_estimators", 25,500)
         criterion = trial.suggest_categorical("criterion",["gini", "entropy", "log_loss"])

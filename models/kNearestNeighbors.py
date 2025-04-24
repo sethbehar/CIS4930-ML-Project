@@ -14,6 +14,9 @@ class kNearestNeighbors():
     def predict(self, X_test):
         return self.model.predict(X_test)
     
+    def predict_proba(self, X_test):
+        return self.model.predict_proba(X_test)
+
     def objective(self, trial, X, y):
         n_neighbors = trial.suggest_int("n_neighbors", 1,25)
         weights = trial.suggest_categorical("weights", ['uniform', 'distance'])

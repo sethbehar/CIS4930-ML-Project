@@ -20,7 +20,9 @@ class adaboost():
     def predict(self, X_test):
         return self.model.predict(X_test)
     
-
+    def predict_proba(self, X_test):
+        return self.model.predict_proba(X_test)
+    
     def objective(self, trial, X, y):
         estimator = trial.suggest_categorical("estimator", [ DecisionTreeClassifier(),  KNeighborsClassifier(), LogisticRegression()])
         n_estimators = trial.suggest_int("n_estimators", 10, 100)

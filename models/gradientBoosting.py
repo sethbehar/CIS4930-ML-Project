@@ -14,6 +14,9 @@ class gradientBoosting():
     def predict(self, X_test):
             return self.model.predict(X_test)
     
+    def predict_proba(self, X_test):
+        return self.model.predict_proba(X_test)
+    
     def objective(self, trial, X, y):
         loss = trial.suggest_categorical("loss",['log_loss', 'exponential'])
         learning_rate = trial.suggest_float("learning_rate", -3,3)

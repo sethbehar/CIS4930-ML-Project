@@ -16,6 +16,9 @@ class svc():
     def predict(self, X_test):
         return self.model.predict(X_test)
     
+    def predict_proba(self, X_test):
+        return self.model.predict_proba(X_test)
+
     def objective(self, trial, X, y):
         kernel = trial.suggest_categorical("kernel",['linear','poly','rbf','sigmoid','precomputed'])
         degree = trial.suggest_int("degree", 1,20)
