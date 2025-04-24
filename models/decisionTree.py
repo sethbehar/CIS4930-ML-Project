@@ -45,3 +45,13 @@ class decisionTree():
             optuna.delete_study(study_name= model_name, storage="sqlite:///tuning_results.db")
         except KeyError as e:
             print("Failed delete, record does not exist")
+    
+    def load_params(self, model_name):
+        try:
+            study = optuna.load_study(study_name=model_name, storage="sqlite:///tuning_results.db")
+            best_params = study.best_trial.params
+            self.model=DecisionTreeClassifier(**best_params)
+            return True
+        except Exception as e:
+            print("ERROR LOADING PARAMS ", e)
+            return False

@@ -49,3 +49,13 @@ class gradientBoosting():
             optuna.delete_study(study_name= model_name, storage="sqlite:///tuning_results.db")
         except KeyError as e:
             print("Failed delete, record does not exist")
+
+    def load_params(self, model_name):
+        try:
+            study = optuna.load_study(study_name=model_name, storage="sqlite:///tuning_results.db")
+            best_params = study.best_trial.params
+            self.model=GradientBoostingClassifier(**best_params)
+            return True
+        except:
+            print("ERROR LOADING PARAMS")
+            return False

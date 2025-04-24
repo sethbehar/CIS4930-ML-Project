@@ -22,7 +22,13 @@ class adaboost():
     
 
     def objective(self, trial, X, y):
-        estimator = trial.suggest_categorical("estimator", [ DecisionTreeClassifier(),  KNeighborsClassifier(), LogisticRegression()])
+        estimator_name = trial.suggest_categorical("estimator", [ "dtc",  "knn", "lr"])
+        if estimator_name == "dtc":
+            estimator = DecisionTreeClassifier()
+        elif estimator_name == "knn":
+            estimator = KNeighborsClassifier()
+        else:
+            estimator= LogisticRegression()
         n_estimators = trial.suggest_int("n_estimators", 10, 100)
         learning_rate = trial.suggest_float("learning_rate", .00001, 2)
         adaboost = AdaBoostClassifier(estimator=estimator,
@@ -44,3 +50,23 @@ class adaboost():
             optuna.delete_study(study_name= model_name, storage="sqlite:///tuning_results.db")
         except KeyError as e:
             print("Failed delete, record does not exist")
+        
+    def load_params(self, model_name):
+        try:
+            study = optuna.load_study(study_name=model_name, storage="sqlite:///tuning_results.db")
+            best_params = study.best_trial.params
+            if best_params == "dtc":
+                estimator = DecisionTreeClassifier()
+            elif best_params == "knn":
+                estimator = KNeighborsClassifier()
+            else:
+                estimator= LogisticRegression()
+
+            n_estimators = best_params["n_estimators"]
+            learning_rate =best_params["learning_rate"]
+
+            self.model=AdaBoostClassifier(estimator=estimator,n_estimators=n_estimators,learning_rate=learning_rate)
+            return True
+        except:
+            print("ERROR LOADING PARAMS")
+            return False

@@ -21,7 +21,13 @@ class bagging():
             return self.model.predict(X_test)
     
     def objective(self, trial, X, y):
-        estimator = trial.suggest_categorical("estimator", [ DecisionTreeClassifier(),  KNeighborsClassifier(), LogisticRegression()])
+        estimator_name = trial.suggest_categorical("estimator", [ "dtc",  "knn", "lr"])
+        if estimator_name == "dtc":
+            estimator = DecisionTreeClassifier()
+        elif estimator_name == "knn":
+            estimator = KNeighborsClassifier()
+        else:
+            estimator= LogisticRegression()
         n_estimators = trial.suggest_int("n_estimators", 10, 100)
         max_samples = trial.suggest_int("max_samples", 1, 100)
 
@@ -45,3 +51,23 @@ class bagging():
             optuna.delete_study(study_name= model_name, storage="sqlite:///tuning_results.db")
         except KeyError as e:
             print("Failed delete, record does not exist")
+    
+    def load_params(self, model_name):
+        try:
+            study = optuna.load_study(study_name=model_name, storage="sqlite:///tuning_results.db")
+            best_params = study.best_trial.params
+            if best_params == "dtc":
+                estimator = DecisionTreeClassifier()
+            elif best_params == "knn":
+                estimator = KNeighborsClassifier()
+            else:
+                estimator= LogisticRegression()
+
+            n_estimators = best_params["n_estimators"]
+            max_samples =best_params["max_samples"]
+
+            self.model=BaggingClassifier(estimator=estimator,n_estimators=n_estimators,max_samples=max_samples, n_jobs=-1)
+            return True
+        except:
+            print("ERROR LOADING PARAMS")
+            return False
